@@ -23,12 +23,13 @@
         </ul>
         <div class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             {% if user.is_authenticated %}
-            <p class="me-2">Hello, {{ user.username }}</p>
+            <p class="me-2">Hello, {{ user.get_username }}</p>
             <a href="{% url 'logout' %}" class="btn btn-outline-primary me-2">Logout</a>
             {% else %}
             <a href="{% url 'register' %}" class="btn btn-outline-primary me-2">Create New Account</a>
             <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
             {% endif %}
+
     </header>
     <div class="justify-content-center align-items-center">
         {%block content%}
