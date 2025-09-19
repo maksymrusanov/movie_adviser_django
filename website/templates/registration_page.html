@@ -21,7 +21,17 @@
 
             <h2 class="text-center mb-4 fw-bold text-primary">Register New Account</h2>
 
+
             <form method="post" action="/register">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+                <a href="{% url 'login_page' %}">Login</a>
+                {% endif %}
+
                 <!-- Username -->
                 <div class="mb-3">
                     <label for="username" class="form-label fw-semibold">Username</label>

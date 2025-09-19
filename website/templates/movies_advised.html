@@ -2,6 +2,26 @@
 {%block title%}
 Movies you might would like
 {%endblock%}
-{%block content%}
-<h1>movies adviser</h1>
-{%endblock%}
+{% block content %}
+<h1 class="text-center">Popular Films</h1>
+
+<div class="container align-items-center">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        {% for movie in movies %}
+        <div class="col mb-4">
+            <p class="fw text-center">{{ movie.title }}</p>
+            <img class="img-fluid mx-auto d-block" src="https://image.tmdb.org/t/p/w200{{ movie.poster }}"
+                alt="{{ movie.title }}">
+        </div>
+        {% empty %}
+        <p>Нет данных</p>
+        {% endfor %}
+    </div>
+</div>
+<div class="text-center mt-4">
+    <a href="?page={{ next_page }}" class="btn btn-primary">Load more</a>
+
+
+</div>
+{% endblock %}
